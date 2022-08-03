@@ -24,7 +24,7 @@ fs.createReadStream("expenses.csv")
   .on("data", (data) => {
     const date = new Date(data.Date);
 
-    if (!date.getMonth() || !date.getFullYear()) {
+    if (date.getMonth() < 0 || !date.getFullYear()) {
       return;
     }
 
